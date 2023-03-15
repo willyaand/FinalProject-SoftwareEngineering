@@ -65,18 +65,19 @@ var checklistBox = [] <-- data berisi di dalam array asosiatif
 // B. KODE FUNGSI UNTUK PROSES PENGOLAHAN DATANYA (FUNCTION)
 
 // B1. Mengkoneksikan ke DATABASE
-var namaDatabase = "FINALPROJECT-SE"
-var namaHost = "Localhost"
-var namaUser = "Wisnu Wiliyandi - BE4213075"
-var passUser = "root"
-var namaTabel = "tabelFinalProject-SE"
 
-var koneksikanDatabase = DATABASE CONNECTED (namaDatabase, namaHost, namaUser, passUser)
+	var namaDatabase = "FINALPROJECT-SE"
+	var namaHost = "Localhost"
+	var namaUser = "Wisnu Wiliyandi - BE4213075"
+	var passUser = "root"
+	var namaTabel = "tabelFinalProject-SE"
+
+	var koneksikanDatabase = DATABASE CONNECTED (namaDatabase, namaHost, namaUser, passUser)
 
 // B2. Menambahkan Pekerjaan (CREATE)
 
 		FUNCTION tambahPekerjaan(namaPekerjaan)
-			INSERT pekerjaan with namaPekerjaan into DATABASE
+			INSERT pekerjaan with namaPekerjaan INTO DATABASE
 			PRINT pekerjaan
 			return view to tampilanToDoList.html
 		END FUNCTION
@@ -85,7 +86,7 @@ var koneksikanDatabase = DATABASE CONNECTED (namaDatabase, namaHost, namaUser, p
 // B3. Mengubah/Mengupdate Pekerjaan (UPDATE)
 
 		FUNCTION ubahPekerjaan(namaPekerjaan)
-			UPDATE pekerjaan with ubahPekerjaan into DATABASE
+			UPDATE pekerjaan with ubahPekerjaan INTO DATABASE
 			PRINT pekerjaan 
 			return view to tampilanToDoList.html
 		END FUNCTION
@@ -94,8 +95,8 @@ var koneksikanDatabase = DATABASE CONNECTED (namaDatabase, namaHost, namaUser, p
 // B4. Menghapus Pekerjaan (DELETE)
 
 		FUNCTION hapusPekerjaan(namaPekerjaan)
-			DELETE pekerjaan with namaPekerjaan from DATABASE
-			PRINT pekerjaan 
+			DELETE pekerjaan with namaPekerjaan FROM DATABASE
+			PRINT pekerjaan
 			return view to tampilanToDoList.html
 		END FUNCTION
 		CALL hapusPekerjaan(namaPekerjaan)
