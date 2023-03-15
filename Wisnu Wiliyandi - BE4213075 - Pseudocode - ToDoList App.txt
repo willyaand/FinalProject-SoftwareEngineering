@@ -1,0 +1,114 @@
+TO-DO LIST APP PSEUDOCODE
+WISNU WILIYANDI - BE4213075
+
+*anggap saja file tampilannya yaitu tampilanToDoList.html :D
+array [] digunakan sebagai penampung/wadah data.
+var pekerjaan = [] <-- data berisi di dalam array asosiatif
+var checklistBox = [] <-- data berisi di dalam array asosiatif
+
+// A. KODE PENGKONDISIAN DAN PENGULANGAN UNTUK TAMPILANNYA (CONDITIONAL & LOOPING)
+
+// A1. Tombol Menambahkan Pekerjaan Ditekan
+
+		IF tombolTambahPekerjaan PRESS = true
+			tambahPekerjaan(namaPekerjaan)
+		ELSE
+			return view to tampilanToDoList.html
+		
+// A2. Tombol Mengubah/Mengedit Pekerjaan Ditekan
+
+		IF tombolUbahPekerjaan PRESS = true
+			ubahPekerjaan(namaPekerjaan)
+		ELSE
+			return view to tampilanToDoList.html
+
+// A3. Tombol Menghapus Pekerjaan Ditekan
+
+		IF tombolHapusPekerjaan PRESS = true
+			hapusPekerjaan(namaPekerjaan)
+		ELSE
+			return view to tampilanToDoList.html
+
+// A4. Tombol Ceklis Ditekan Apabila Pekerjaan Telah Selesai
+
+		IF tombolCeklis PRESS = true
+			INSERT checklist on checklistBox
+			PRINT "Pekerjaan Anda Telah Selesai"
+		ELSE
+			return view to tampilanToDoList.html
+
+// A5. Tombol Ceklis Apabila Dihapus
+
+		IF tombolCeklis UNPRESS = true
+			DELETE checklist on checklistBox
+		ELSE	
+			return view to tampilanToDoList.html
+			
+// A6. Mengquery Data dari DATABASE Untuk Ditampilkan dan Dibaca di Layar (READ)
+
+		var queryData = var koneksikanDatabase("tabelFinalProject-SE")
+		var hasilData = var queryData
+
+// A7. Menampilkan Pengulangan Seluruh Data Pekerjaan ke Dalam Layar Tampilan Berdasarkan Array Asosiatif / Associative Array
+
+        WHILE var dataPekerjaan = pekerjaan['namaPekerjaan'] from var hasilData
+            PRINT dataPekerjaan on tampilanToDoList.html
+        END WHILE
+
+// A8. Menampilkan Pengulangan Seluruh Data Checklist ke Dalam Layar Tampilan Sesuai Data Pekerjaan
+
+        WHILE var tombolCeklis = checklistBox['checklist'] from var hasilData
+            PRINT checklistBox on tampilanToDoList.html
+        END WHILE	
+
+
+// B. KODE FUNGSI UNTUK PROSES PENGOLAHAN DATANYA (FUNCTION)
+
+// B1. Mengkoneksikan ke DATABASE
+var namaDatabase = "FINALPROJECT-SE"
+var namaHost = "Localhost"
+var namaUser = "Wisnu Wiliyandi - BE4213075"
+var passUser = "root"
+var namaTabel = "tabelFinalProject-SE"
+
+var koneksikanDatabase = DATABASE CONNECTED (namaDatabase, namaHost, namaUser, passUser)
+
+// B2. Menambahkan Pekerjaan (CREATE)
+
+		FUNCTION tambahPekerjaan(namaPekerjaan)
+			INSERT pekerjaan with namaPekerjaan into DATABASE
+			PRINT pekerjaan
+			return view to tampilanToDoList.html
+		END FUNCTION
+		CALL tambahPekerjaan(namaPekerjaan)
+
+// B3. Mengubah/Mengupdate Pekerjaan (UPDATE)
+
+		FUNCTION ubahPekerjaan(namaPekerjaan)
+			UPDATE pekerjaan with ubahPekerjaan into DATABASE
+			PRINT pekerjaan 
+			return view to tampilanToDoList.html
+		END FUNCTION
+		CALL ubahPekerjaan(namaPekerjaan)
+
+// B4. Menghapus Pekerjaan (DELETE)
+
+		FUNCTION hapusPekerjaan(namaPekerjaan)
+			DELETE pekerjaan with namaPekerjaan from DATABASE
+			PRINT pekerjaan 
+			return view to tampilanToDoList.html
+		END FUNCTION
+		CALL hapusPekerjaan(namaPekerjaan)
+
+// Demikian. Selesai dan Terima Kasih :D
+// Wisnu Wiliyandi - BE4213075
+
+
+	
+            
+
+
+	
+
+
+
